@@ -36,5 +36,38 @@ function animate(){
 
     c.fillRect(x, y, 60, 60);
 
+    if((x + 60) > canvas.width){
+        x = 0;
+        y = 0;
+
+    }
+    if((y + 80) > canvas.height){
+        x = 0;
+        y = 0;
+    }
+    if((y + 80) < 0){
+        x = 0;
+        y = 0;
+    }
+    if((x + 60) < 0){
+        x = 0;
+        y = 0;
+
+    }
+    
+    for (var i = 0; i < 10; i++){
+        var z = random(0, canvas.widht);
+        var w = random(0, canvas.height);
+        c.beginPath();
+        c.arc(z, w, 10, 0, Math.PI * 2, false);
+        c.fillStyle = "#ffff2f";
+        c.fill(); 
+    }
+
 }
+
+function random(min, max){
+    return Math.random() * (max - min) + min;
+}
+
 animate();
